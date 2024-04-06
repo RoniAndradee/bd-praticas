@@ -42,12 +42,18 @@ select * from projeto;
 select * from aluno;
 
 -- Exibir os dados dos alunos e dos projetos correspondentes
-select * from aluno join projeto on fkProjeto = idProjeto;
+select a.ra as raAluno, a.nome as NomeDoAluno, a.telefone as TelefoneDoAluno, a.fkProjeto as ProjetoDoAluno, a.fkRepresentante as RepresentanteDoAluno,
+p.idProjeto as idProjetoDoAluno, p.nome as NomeDoProjeto, p.descricao as DescricaoDoProjeto
+from aluno as a join projeto as p on fkProjeto = idProjeto;
 
 -- Exibir os dados dos alunos e dos seus representantes
-select * from aluno join aluno as representante on aluno.fkRepresentante = representante.ra;
+select a.ra as raAluno, a.nome as NomeDoAluno, a.telefone as TelefoneDoAluno, a.fkProjeto as ProjetoDoAluno,
+r.ra as raRepresentante, r.nome as NomeDoRepresentante, r.telefone as TelefoneDoRepresentante, r.fkProjeto as ProjetoDoRepresentante
+from aluno as a join aluno as r on a.fkRepresentante = r.ra;
 
 -- Exibir os dados dos alunos e dos projetos correspondentes, mas somente de um determinado projeto (indicar o nome do projeto na consulta)
-select * from aluno join projeto on fkProjeto = idProjeto where projeto.nome = 'Aquaponix';
+select a.ra as raAluno, a.nome as NomeDoAluno, a.telefone as TelefoneDoAluno, a.fkProjeto as ProjetoDoAluno, a.fkRepresentante as RepresentanteDoAluno,
+p.idProjeto as idProjetoDoAluno, p.nome as NomeDoProjeto, p.descricao as DescricaoDoProjeto
+from aluno as a join projeto as p on fkProjeto = idProjeto where p.nome = 'Aquaponix';
 
 
