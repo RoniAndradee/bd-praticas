@@ -54,6 +54,8 @@ update organizador set fkOrientador = 31 where idOrganizador in(34, 35);
 select * from organizador;
 select * from campanha;
 
+-- select feito em aula
+
 -- Exibir os dados dos organizadores e os dados de suas respectivas campanhas
 select o.idOrganizador as idOrganizador, o.nome as NomeDoOrganizador, o.rua as RuaDoOrganizador, o.bairro as BairroDoOrganizador, o.email as EmailDoOrganizador, o.fkOrientador as OrientadorDoOrganizador,
 c.idCampanha as idCampanha, c.categoria as CategoriaDaCampanha, c.instituicao as InstituicaoDaCampanha, c.instituicao2 as SegundaInstituicaoDaCampanha, c.dtFinal as DataFinalDaCampanha, c.fkOrganizador as OrganizadorDaCampanha
@@ -81,7 +83,3 @@ campanha.idCampanha as idCampanha, campanha.categoria as CategoriaDaCampanha, ca
 orientador.idOrganizador as idOrientador, orientador.nome as NomeDoOrientador, orientador.rua as RuaDoOrientador, orientador.bairro as bairroDoOrientador, orientador.email as EmailDoOrientador 
 from organizador as novato join organizador as orientador on novato.fkOrientador = orientador.idOrganizador
 join campanha as campanha on novato.idOrganizador = campanha.fkOrganizador where novato.nome = 'Suellen';
- 
-
-
-
